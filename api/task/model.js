@@ -8,7 +8,7 @@ async function findAll() {
 
   const tasksObj  = tasks.map((task) => {
     return {
-      task_id: task_id,
+      task_id: task.task_id,
       task_description: task.task_description,
       task_notes: !task.task_notes ? null : task.task_notes,
       task_completed: !task.task_completed
