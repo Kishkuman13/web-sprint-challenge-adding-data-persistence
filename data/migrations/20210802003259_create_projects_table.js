@@ -4,7 +4,7 @@ exports.up = function(knex) {
     tbl.increments();
     tbl.string('project_name').notNullable();
     tbl.string('project_description');
-    tbl.integer('project_completed').defaultTo(false);
+    tbl.boolean('project_completed').defaultTo(false);
   })
 };
 

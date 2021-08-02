@@ -11,11 +11,7 @@ async function findAll() {
       task_id: task.task_id,
       task_description: task.task_description,
       task_notes: !task.task_notes ? null : task.task_notes,
-      task_completed: !task.task_completed
-        ? false
-        : task.task_completed === 0
-        ? false
-        : true,
+      task_completed: !taskData.task_completed ? false : taskData.task_completed === 0 ? false : true,
       project_id: task.project_id,
       project_name: task.project_name,
       project_description: task.project_description
@@ -38,19 +34,20 @@ async function addTask(taskData) {
     .select('tasks.*', 'projects.id')
     .insert(taskData);
 
+
   const tasksObj = {
     task_id: task_id,
     task_description: task_description,
     task_notes: !task_notes ? null : task_notes,
-    task_completed: !task_completed
-      ? false
-      : task_completed === 0
-      ? false
-      : true,
+    task_completed: !task_completed || task_completed === 0 ? false : true,
     project_id: project_id,
     project_name: project_name,
     project_description: project_description
   };
+
+  console.log(taskData)
+  
+  console.log(tasksObj.task_completed)
   return tasksObj;
 }
 
