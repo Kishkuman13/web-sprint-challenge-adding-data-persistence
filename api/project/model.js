@@ -8,7 +8,7 @@ async function findAll() {
       project_id: project.id,
       project_name: project.project_name,
       project_description: project.project_description,
-      project_completed: !project.project_completed ? false : project.project_completed === 0 ? false : true,
+      project_completed: !project.project_completed ? true : project.project_completed === 0 ? true : false,
     };
   });
 
@@ -23,10 +23,10 @@ async function addProject(project) {
 		project_name: project.project_name,
 		project_description: project.project_description,
 		project_completed: !project.project_completed
-			? false
+			? true
 			: project.project_completed === 0
-			? false
-			: true,
+			? true
+			: false,
   };
   return projectsObj;
 }
